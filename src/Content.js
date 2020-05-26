@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, View, Animated} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { AntDesign as Icon } from "@expo/vector-icons";
 
 import {MAX_HEADER_HEIGHT, MIN_HEADER_HEIGHT} from './Cover'
 import {BUTTON_HEIGHT} from './Button'
@@ -53,8 +54,8 @@ const Content = ({y}) => {
       style={styles.container}
       showsVerticalScrollIndicator={false}
       scrollEventThrottle={1}
+      stickyHeaderIndices={[1]}
     >
-
       <View style={styles.cover}>
         <Animated.View
           style={[styles.gradient, { height }]}
@@ -73,9 +74,10 @@ const Content = ({y}) => {
       </View>
 
       <View style={styles.header}>
-
         <Header y={y}/>
-        <Button />  
+        {/* <Icon name='arrowdown' size={20} color='white'/> */}
+        <Button />
+
       </View>
 
       <View style={styles.tracks}>
@@ -87,7 +89,6 @@ const Content = ({y}) => {
         })
         }
       </View>
-
     </Animated.ScrollView>
     );
 }
@@ -96,6 +97,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       paddingTop: MIN_HEADER_HEIGHT - BUTTON_HEIGHT / 2,
+      flexGrow: 1,
+      marginBottom: 50
     },
     cover: {
       height: MAX_HEADER_HEIGHT - BUTTON_HEIGHT,
@@ -121,6 +124,7 @@ const styles = StyleSheet.create({
     },
     header: {
       marginTop: -BUTTON_HEIGHT,
+      flexDirection: 'row'
     },
     tracks: {
       paddingTop: 32,

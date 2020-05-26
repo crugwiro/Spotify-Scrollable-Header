@@ -24,7 +24,7 @@ const Cover = ({y}) => {
   
     return (
         <Animated.View style={[styles.container, { transform: [{ scale }] }]}>
-          <Image style={styles.image} source={require('../assets/kendrick.jpg')} />
+          <Image style={styles.image} source={require('../assets/Lamar.jpg')} />
           <Animated.View
             style={{ ...StyleSheet.absoluteFillObject, backgroundColor: "black", opacity}}
           />
